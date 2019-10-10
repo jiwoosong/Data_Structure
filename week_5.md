@@ -234,3 +234,118 @@ void main()
 	}
 }
 ```
+### - Task 1
+```c++
+#include <iostream>
+
+using namespace std;
+
+class MultiStack {
+private:
+	int N;								
+	int* stack;							
+	int top;							
+public:
+	MultiStack(int size);					
+	~MultiStack();							
+	void push_floor(int* value);				
+	void push_ceil(int* value);
+	void pop(int n);
+	void pop();
+	int read_top();						
+	void check_stack();					
+	bool isempty();						
+};
+int main()
+{
+	MultiStack st(2);
+
+	int a[3];
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	st.push_ceil(a);
+	st.pop();
+	st.pop(2);
+	st.push_floor(a);
+}
+
+
+```
+### - Task 2
+```c++
+#include<iostream>
+
+using namespace std;
+
+class Customer {
+private:
+	string name;
+	bool data;
+public:
+	Customer(string _name="None")
+	{
+		data = false;
+		name = _name;
+	}
+	void set_data(bool _data)
+	{
+		data = _data;
+	}
+	void show_state() const
+	{
+		cout << name << "'s data is  " << data << endl;
+	}
+};
+
+class Queue {
+private:
+	Customer* queue[5];
+	int front, rear;
+	int capacity = 5;
+	bool is_empty() const;
+public:
+	Queue();
+	~Queue();
+	void push(Customer* data);
+	void pop();
+	void read_front() const;
+	void read_rear() const;
+	void check_queue() const;
+
+};
+
+int main() {
+	Customer c1("jake"), c2("grace"), c3("dave"), c4("peter"), c5("youjean");
+	Queue q;
+
+	q.push(&c1);
+	//q.check_queue();
+	q.push(&c2);
+	//q.check_queue();
+	q.push(&c3);
+	//q.check_queue();
+	q.push(&c4);
+	//q.check_queue();
+	q.push(&c5);
+
+	q.check_queue();
+	q.pop();
+	q.check_queue();
+	q.pop();
+	q.check_queue();
+	q.pop();
+	q.check_queue();
+	q.pop();
+	q.check_queue();
+	q.pop();
+
+	c1.show_state();
+	c2.show_state();
+	c3.show_state();
+	c4.show_state();
+	c5.show_state();
+	
+	return 0;
+}
+```
