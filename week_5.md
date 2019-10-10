@@ -1,6 +1,6 @@
 # Stack & Queue
 ## 1.Stack 
-### - Example 1 
+### - Example 2 code 
 ```c++
 #include <iostream>
 
@@ -97,5 +97,140 @@ int main() {
 }
 ```
 # Stack & Queue
-## 1.Queue 
-### - Example 2 
+## 2.Queue 
+### - Example 4 
+```c++
+#include <iostream>
+
+using namespace std;
+
+class Queue {
+private:
+	int* queue;
+	int front, rear;
+	int capacity;
+	bool is_empty() const;
+public:
+	Queue(int N);
+	~Queue();
+	void push(const int data);
+	void pop();
+	void read_front() const;
+	void read_rear() const;
+	void check_queue() const;
+
+};
+
+Queue::Queue(int N = 10)
+{
+	capacity = N;
+	queue = new int[capacity];
+	front = 0;
+	rear = 0;
+}
+
+Queue::~Queue() {
+	delete[] queue;
+}
+
+void Queue::push(const int data)
+{
+	if ((rear - front) == -1 || (rear - front == capacity - 1))
+		cout << "queue is full" << endl;
+	else
+	{
+		rear++;
+		if (rear == capacity)
+			rear = 0;
+		queue[rear] = data;
+	}
+}
+
+bool Queue::is_empty() const {
+	return rear == front;
+}
+
+void Queue::pop()
+{
+	if (is_empty())
+		cout << "Queue is empty" << endl;
+	else {
+		front++;
+		if (front == capacity)
+			front = 0;
+		cout << "pop data is " << queue[front] << endl;
+	}
+}
+
+void Queue::read_front() const {
+	cout << "Front is " << front << endl;
+}
+
+void Queue::read_rear() const {
+	cout << "Rear is " << rear << endl;
+}
+
+void Queue::check_queue() const {
+	if (front <= rear)
+	{
+		for (int i = front + 1; i < rear + 1; i++)
+			cout << queue[i] << " ";
+		cout << endl;
+		cout << "Total number of data is " << (rear - front);
+
+
+	}
+	else {
+		for (int i = front + 1; i < capacity; i++)
+			cout << queue[i] << " ";
+		for (int i = 0; i < rear + 1; i++)
+			cout << queue[i] << " ";
+		cout << endl;
+		cout << "Total number of data is " << (10 + rear - front);
+	}
+	cout << endl;
+	read_front();
+	read_rear();
+	cout << endl;
+}
+
+int InputDataCheck(int selection)
+{
+	while ((selection != 1) && (selection != 2) && (selection != 3)) {
+		cout << "Selection number error , selection number shold be within [1, 2, 3]" << endl;
+		cout << "Select new number " << endl;
+		cin >> selection;
+		cout << endl;
+	}
+	return selection;
+}
+
+void main()
+{
+	Queue q;
+	int i32test_sel_num = 1;
+	int i32push_pop, i32data;
+
+	while (i32test_sel_num == 1) {
+		cout << "How do you want to test the queue!" << endl << "1. Push" << endl << "2. Pop" << endl << "3. End test" << endl;
+		cout << "please select the number : " << endl;
+		cin >> i32push_pop;
+		i32push_pop = InputDataCheck(i32push_pop);
+
+		if (i32push_pop == 1) {
+			cout << "please input the data: ";
+			cin >> i32data;
+			cout << endl;
+			q.push(i32data);
+			q.check_queue();
+		}
+		else if (i32push_pop == 2) {
+			q.pop();
+			q.check_queue();
+		}
+		else if (i32push_pop == 3) {
+			i32test_sel_num = 0;
+		}
+	}
+}
+```
