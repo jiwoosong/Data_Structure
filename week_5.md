@@ -248,8 +248,8 @@ private:
 public:
 	MultiStack(int size);					
 	~MultiStack();							
-	void push_floor(int* value);				
-	void push_ceil(int* value);
+	void push(int* value, int len); // 데이터 배열을 가르키는 pointer와 배열의 길이를 입력받아 큐에 넣는 함수 			
+	void push_ceil(int* value, int len); // 버림연산 push
 	void pop(int n);
 	void pop();
 	int read_top();						
@@ -300,15 +300,15 @@ public:
 
 class Queue {
 private:
-	Customer* queue[5];
+	Customer* queue[5]; // Customer pointer를 저장하는 배열
 	int front, rear;
 	int capacity = 5;
 	bool is_empty() const;
 public:
 	Queue();
 	~Queue();
-	void push(Customer* data);
-	void pop();
+	void push(Customer* data); // customer의 포인터를 받아 큐에 저장하는 함수
+	void pop(); // 해당 customer를 큐에서 빼고 cutomer의 데이터를 true로 바꾸는 함수
 	void read_front() const;
 	void read_rear() const;
 	void check_queue() const;
