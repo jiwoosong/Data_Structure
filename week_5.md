@@ -248,8 +248,8 @@ private:
 public:
 	MultiStack(int size);					
 	~MultiStack();							
-	void push(int* value, int len); // 데이터 배열을 가르키는 pointer와 배열의 길이를 입력받아 큐에 넣는 함수 			
-	void push_ceil(int* value, int len); // 버림연산 push
+	void push_floor(int* value, int len); // 버림연산 push 			
+	void push_ceil(int* value, int len); // 데이터 배열을 가르키는 pointer와 배열의 길이를 입력받아 큐에 넣는 함수
 	void pop(int n);
 	void pop();
 	int read_top();						
