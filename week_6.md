@@ -85,6 +85,15 @@ public:
 		}
 	}
 };
+void main() {
+	LinkedList data;
+
+	data.appendNode(1)
+	data.appendNode(2)
+	data.appendNode(3)
+	data.appendNode(4)
+	Fibonacci.printNode();
+}
 ```
 
 #### Basic Finbonacci algorithm
