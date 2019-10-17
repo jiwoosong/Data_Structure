@@ -1,6 +1,5 @@
 # Data_Structure Class
-한양대학교 데이터 구조론 실습 강의에 활용되는 코드입니다.
-12주차 course 구성, 매주 업데이트 됩니다.
+Code for Data structure class in Hanyang University. 12 week course, updates every week.
 
 ## Course structure
 1. Review of c-language
@@ -19,6 +18,6 @@
 ## Contract
 Division of Electrical Engineering
 Hanyang University, Erica Campus
-3공학관 518-2호
+518-2, Engineering Building no.3
 
 Vision modeling Lab : +82) 31 436 8195
