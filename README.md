@@ -1,5 +1,5 @@
 # Data_Structure Class
-Code for Data structure class in Hanyang University. 12 week course, updates every week.
+Code for Data structure class in Hanyang University. 12 week course, Updated weekly.
 
 ## Course structure
 1. Review of c-language
