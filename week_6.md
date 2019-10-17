@@ -1,6 +1,6 @@
 # Linked List
-## 1. Linked List
-#### Basic Node Class + Linked List Class (with Append & Delete & Print member function)
+## 1. Single Linked List
+#### Node Class
 ```C++
 #include <iostream>
 #include <string>
@@ -8,136 +8,128 @@
 using namespace std;
 
 class Node {
-public:
+	friend class LinkedList;
+private:
 	int data;
 	Node* Next;
+public:
+	Node() { data = NULL; Next = NULL; }
+	Node(int _data) { data = _data; Next = NULL; }
+	Node(int _data, Node *_node) { data = _data; Next = _node; }
 };
 
 class LinkedList {
-public:
+private:
 	Node *Head;
-  
-	LinkedList() {
-		Head = NULL;
-	}
-  
-	void append(int data) {
-		Node * newNode = new Node();
-		newNode->data = data;
-		newNode->Next = NULL;
+public:
 
-		Node *pNode = Head;
-		if (pNode != NULL) {
-			while (pNode->Next != NULL) {
-				pNode = pNode->Next;
-			}
-			pNode->Next = newNode;
-		}
-		else {
-			Head = newNode;
-		}
+	LinkedList() { Head = NULL; }
+	~LinkedList() { delete_all(); }
+
+	void insert_first(int data) {
+		cout << "Insert " << data << endl;
+		Head = new Node(data, Head);
 	}
 
-	void del(int data) {
-		Node *pNode = Head;
-		if (pNode == NULL) return;
-		else if (pNode->Next == NULL) {
-			if (data == pNode->data)
-				delete pNode;
+	void remove_first() {
+		if (Head) {
+			Node* tmp = Head;
+			Head = Head->Next;
+			cout << "Remove " << tmp->data << endl;
+			delete tmp;
 		}
 		else {
-			Node *nextNode;
-			do {
-				if (data == pNode->Next->data) {
-					break;
-				}
-				pNode = pNode->Next;
-			} while (pNode->Next != NULL);
-			nextNode = pNode->Next;
-			pNode->Next = pNode->Next->Next;
-
-			delete nextNode;
+			cout << "Linked List is empty" << endl;
 		}
 	}
 
-	void printNode() {
-		Node *current = Head;
-		// Head 조차 비어있을 때
-		if (current == NULL) {
-			cout << "Empty Linked List" << endl;
+	void delete_all() {
+		while (Head != NULL) {
+			Node* tmp = Head;
+			Head = Head->Next;
+			delete tmp;
 		}
-		// 노드가 하나만 존재할 경우
-		else if (current->Next == NULL) {
-			// Head 출력
-			cout << current->data << " -> ";
-			cout << "NULL" << endl;
-		}
-		else {
-			// Head 출력
-			cout << current->data << " -> ";
-			current = current->Next;
-			// Head->Next부터 Node 탐색
-			while (current != NULL) {
-				cout << current->data << " -> ";
-				current = current->Next;
-			}
-			cout << "NULL" << endl;
-		}
+		cout << "* Delete all nodes" << endl;
 	}
 };
-void main() {
-	LinkedList data;
 
-	data.appendNode(1)
-	data.appendNode(2)
-	data.appendNode(3)
-	data.appendNode(4)
-	Fibonacci.printNode();
+void main() {
+	LinkedList stack;
+	stack.insert_first(1);
+	stack.insert_first(2);
+	stack.insert_first(3);
+	stack.insert_first(4);
+
+	stack.remove_first();
+	stack.remove_first();
 }
 ```
 
-#### Basic Finbonacci algorithm
+#### Queue(TASK)
 ```C++
-void main() {
-	LinkedList Fibonacci;
+#include <iostream>
+#include <string>
 
-	int F_current = 1;
-	int F_next = 1;
-	int num = 50;
-	int tmp;
+using namespace std;
 
-	cout << F_current << endl;
-	for (int i = 0; i < num; i++) {
-		cout <<F_next;
-		tmp = F_next;
-		F_next = F_next + F_current;
-		F_current = tmp;
+class Node {
+	friend class LinkedList;
+private:
+	int data;
+	Node* Next;
+public:
+	Node() { data = NULL; Next = NULL; }
+	Node(int _data) { data = _data; Next = NULL; }
+	Node(int _data, Node *_node) { data = _data; Next = _node; }
+};
+
+
+class LinkedList {
+private:
+	Node *Head;
+	Node *Tail;
+public:
+
+	LinkedList() { Head = NULL; Tail = NULL; }
+	~LinkedList() { delete_all(); }
+
+	void insert_last(int data) {
+		cout << "Insert " << data << endl;
+		/*
+			Write down your own code
+		*/
 	}
-	Fibonacci.printNode();
+
+	void remove_first() {
+		/*
+			Write down your own code
+		*/
+	}
+
+	void delete_all() {
+		while (Head != NULL) {
+			Node* tmp = Head;
+			Head = Head->Next;
+			delete tmp;
+		}
+		cout << "* Delete all nodes" << endl;
+	}
+};
+
+void main() {
+	LinkedList stack;
+	stack.insert_last(1);
+	stack.insert_last(2);
+	stack.insert_last(3);
+	stack.insert_last(4);
+
+	stack.remove_first();
+	stack.remove_first();
+	stack.remove_first();
+	stack.remove_first();
 }
 ```
 
-#### Linked List Fibonacci Code
-Merge with above classes
-```C++
-void main() {
-	LinkedList Fibonacci;
-
-	int F_current = 1;
-	int F_next = 1;
-	int num = 50;
-	int tmp;
-
-	Fibonacci.append(F_current);
-	for (int i = 0; i < num; i++) {
-		Fibonacci.append(F_next);
-		tmp = F_next;
-		F_next = F_next + F_current;
-		F_current = tmp;
-	}
-	Fibonacci.printNode();
-}
-```
 
 ## 2. Doubly Linked List
 ### Travel Node
