@@ -1,6 +1,6 @@
 # Linked List
 ## 1. Single Linked List
-#### Node Class
+### Linked List(Stack)
 ```C++
 #include <iostream>
 #include <string>
@@ -65,7 +65,7 @@ void main() {
 }
 ```
 
-#### Queue(TASK)
+### Queue(TASK)
 ```C++
 #include <iostream>
 #include <string>
