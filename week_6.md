@@ -197,7 +197,8 @@ public:
 
 			//삭제하려는 노드의 다음 노드가 없는 경우
 			if (nextNode == NULL) {
-				Head = nextNode;
+				Tail = prevNode;
+				//Head = nextNode; 틀렸던 부분(수정됨)
 			}else {
 				nextNode->Prev = prevNode;
 			}
