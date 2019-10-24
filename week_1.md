@@ -1,4 +1,4 @@
-# Basic C++ 2
+# Review of C language
 
 ## 1. Function
 ### - Example 1
