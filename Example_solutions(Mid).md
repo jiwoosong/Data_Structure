@@ -285,6 +285,117 @@ void main() {
 # 5. Stack & Queue
 ## Task 1
 ```C++
+#include <iostream>
+
+using namespace std;
+
+class MultiStack {
+private:
+	int N;
+	int* stack;
+	int top;
+public:
+	MultiStack(int size);
+	~MultiStack();
+	void push_floor(int* value, int len);
+	void push_ceil(int* value, int len);
+	void push(int value);
+	void pop(int n);
+	void pop();
+	int read_top();
+	void check_stack();
+	bool isempty();
+};
+
+MultiStack::MultiStack(int size = 3)				// 스텍 크기 기본 3 설정
+{
+	N = size;
+	stack = new int[N];					// 스텍 메모리 동적 할당
+	top = -1;							// top 을 -1로 설정 0부터 데이터 존재
+}
+
+MultiStack::~MultiStack()
+{
+	delete[] stack;						// 동적할당으로 얻은 메모리 공간 반납
+}
+
+bool MultiStack::isempty()
+{
+	return top == -1;					// top 이 -1 일 경우 스텍이 비어있음
+}
+
+void MultiStack::push(int value)
+{
+	if (top == (N - 1))					// top 이 N-1 까지 가있으면 데이터가 full임을 의미 
+		cout << "stack is full" << endl;
+	else
+		stack[++top] = value;			// full 이 아니면 다음 공간에 데이터 저장
+
+}
+
+void MultiStack::push_floor(int* value, int len) 
+{
+	if ((N - top - 1) < len) return;
+	for (int i = 0; i < len; i++) push(value[i]);
+}
+void MultiStack::push_ceil(int* value, int len)
+{
+	for (int i = 0; i < len; i++)
+	{
+		push(value[i]);
+		if ((N - top) == 1) break;
+	}
+}
+
+int MultiStack::read_top()
+{
+	cout << "top value : " << top << endl;
+	return top;							// top 값을 반환
+}
+
+void MultiStack::pop()
+{
+	if (isempty())						// 스텍이 비어 있으면 pop 할 데이터가 없으므로 메시지 출력
+		cout << "stack is empty" << endl;
+	else
+		top--;							// 데이터 하나 출력되어 top 내림
+}
+void MultiStack::pop(int n)
+{
+	for (int i = 0; i < n; i++) pop();
+}
+void MultiStack::check_stack()
+{
+	if (top > -1) {						// 스텍이 비어 있지 않으면 데이터 하나씩 열람 
+		for (int i = 0; i < top + 1; i++)
+			cout << stack[i] << " ";
+		cout << endl;
+		cout << "Total number for data is " << (top + 1);
+
+		cout << endl;
+		read_top();
+		cout << endl;
+	}
+}
+
+int main()
+{
+	MultiStack st(2);
+
+	int a[3];
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	st.push_ceil(a, 3);
+	st.check_stack();
+	st.pop();
+	st.check_stack();
+	st.pop(2);
+	st.check_stack();
+	st.push_floor(a, 3);
+	st.check_stack();
+}
+
 ```
 ## Task 2
 ```C++
