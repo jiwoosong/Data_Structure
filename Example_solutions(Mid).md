@@ -497,7 +497,7 @@ void Queue::check_queue() const {
 		for (int i = 0; i < rear + 1; i++)
 			queue[i]->show_state();
 		cout << endl;
-		cout << "Total number of data is " << (10 + rear - front);
+		cout << "Total number of data is " << (capacity + rear - front);
 	}
 	cout << endl;
 	read_front();
