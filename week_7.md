@@ -23,9 +23,7 @@ public:
 		if (left_child == NULL) left_child = _child;
 		else {
 			Tree* temp = left_child;
-			while (temp->right_sibling != NULL)
-				temp = temp->right_sibling;
-			temp->right_sibling = _child;
+			// fill the blank
 		}
 	}
 	void print_tree(int _depth)
