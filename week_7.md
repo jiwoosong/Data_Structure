@@ -1,7 +1,8 @@
-# Linked List
-## 1. Single Linked List
-### Linked List(Stack)
-'''
+# Tree
+## 1. Tree Traversal
+### List Representation of Tree
+
+```C++
 #include <iostream>
 using namespace std;
 
