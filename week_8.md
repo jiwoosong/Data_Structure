@@ -71,7 +71,6 @@ void main()
 }
 
 ```
-# BST
 ## 2. BST implementation
 ```C++
 #include <iostream>
