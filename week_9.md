@@ -50,16 +50,18 @@ public:
 	//DFS를 실행할 재귀함수
 	void runDFS(int node, bool state[], AdjListNode* temp)
 	{
+		/*
 		//Node에 들어왔으므로 해당 노드의 state는 True로 변경한다.
 		...
 		//인접리스트들을 모두 탐색한다.
 		...
-		while (...){
+		while (...) {
 			//state가 0이면 방문하지 않았다는 것이므로 재귀함수를 시작한다.
 			...
 			//state = 1이면 탐색이 되었던 노드이므로 인접노드를 확인한다.
 			...
-		}
+			}
+		*/
 	}
 
 	//새로운 노드를 만들고 그 노드의 주소값을 반환하는 함수 정의
@@ -234,8 +236,9 @@ int main()
 	gh.printGraph();
 	gh.addEdge(4, 5);
 	gh.printGraph();
+	
   
-  gh.DFS(5)
+  	gh.DFS(5);
 	return 0;
 }
 ```
