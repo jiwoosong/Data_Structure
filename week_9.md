@@ -251,7 +251,7 @@ int main()
   	BUild graphs
  	 */
   
-  	gh.DFS(1)
+  	gh.DFS(0)
 	return 0;
 }
 ```
