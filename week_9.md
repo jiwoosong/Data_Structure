@@ -245,13 +245,13 @@ int main()
 ```C++
 int main()
 {
-	Graph gh(7);
+	Graph gh(9);
 
 	/*
-  BUild graphs
-  */
+  	BUild graphs
+ 	 */
   
-  gh.DFS(5)
+  	gh.DFS(1)
 	return 0;
 }
 ```
