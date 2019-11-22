@@ -254,4 +254,17 @@ int main()
   	gh.DFS(0)
 	return 0;
 }
+// or..
+int main()
+{
+	Graph gh(10);
+
+	/*
+  	BUild graphs
+ 	 */
+  
+  	gh.DFS(1)
+	return 0;
+}
+
 ```
