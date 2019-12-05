@@ -206,11 +206,10 @@ int main()
 
 	hinst.print();
 }
-
-
 ```
 
 ### <Task3>
+	
 ``` C++
 
 int MyHash::Hash_function(string _key) {
