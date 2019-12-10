@@ -11,9 +11,10 @@ Code for Data structure class in Hanyang University. 12 week course, Updated wee
 7. Tree
 8. Binary Search Tree
 9. Adjacency list, Searching methods
-10. sorting & Hashing
-11. spanning tree, shortest path
-12. Priority Queue, AVL tree
+10. sorting
+11. Hashing
+12-1. spanning tree, shortest path
+12-2. Priority Queue, AVL tree
 
 ## Contract
 Division of Electrical Engineering
