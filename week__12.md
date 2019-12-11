@@ -27,9 +27,7 @@ public:
 		visited = new bool[len];
 		for (int i = 0; i < len; i++) { path[i] = -1; cost[i] = INFINITY; visited[i] = false; }
 	}
-	void set_index(int* arr) {
 
-	}
 
 	void addEdge(int V1, int V2, double weight) {
 		// Update Adjacency matrix into weight value
